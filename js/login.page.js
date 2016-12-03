@@ -19,10 +19,10 @@ $(document).ready(function () {
 
       if(data.type==1)
       {
-        window.location.href = "admin.html";
+        window.location.href = "../html/admin.html";
       }
       else {
-          window.location.href = "user.html";
+          window.location.href = "../html/user.html";
       }
 
 

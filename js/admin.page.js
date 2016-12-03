@@ -132,7 +132,7 @@ $(document).ready(function () {
 
   $("#logOutLink").on("click", function(){
     SDK.logOut();
-    window.location.href = "index.html";
+    window.location.href = "../html/index.html";
   });
 
 

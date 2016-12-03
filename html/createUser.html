@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>create user</title>
+    <title>Opret bruger</title>
 </head>
 <body>
 
-<link rel="stylesheet" href="lib/css/bootstrap.css">
-<link rel="stylesheet" href="lib/css/bootstrap.lumen.min.css">
-<link rel="stylesheet" href="css/sticky-footer.css">
+<link rel="stylesheet" href="../lib/css/bootstrap.css">
+<link rel="stylesheet" href="../lib/css/bootstrap.lumen.min.css">
+<link rel="stylesheet" href="../css/sticky-footer.css">
 
 
 <div class="container">
@@ -26,44 +26,46 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"> Book Exchange </a>
+                        <a class="navbar-brand" href="index.html">CBS Brugtbogsbørs </a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="books.html">Books <span class="sr-only">(current)</span></a></li>
-                            <li><a href="ads.html">Ads</a></li>
-                            <li><a href="createUser.html">Create user</a></li>
+                            <li class="active"><a href="books.html">Bøger<span class="sr-only">(current)</span></a></li>
+                            <li><a href="ads.html">Annoncer</a></li>
+                            <li><a href="createUser.html">Opret bruger</a></li>
 
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="aboutUs.html">About us</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
+                            <li><a href="aboutUs.html">Om os</a></li>
                             <li><a href="login.html">Login</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
+
+
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3">
                     <form class="form-horizontal" id="loginForm">
                         <fieldset>
 
-                            <legend>Create user</legend>
+                            <legend>Opret bruger</legend>
 
                             <div class="form-group">
-                                <label for="newUsername" class="col-lg-2 control-label">Username</label>
+                                <label for="newUsername" class="col-lg-2 control-label">Brugernavn</label>
                                 <div class="col-lg-10">
-                                    <input type="username" class="form-control" id="newUsername" placeholder="Username">
+                                    <input type="username" class="form-control" id="newUsername" placeholder="Brugernavn">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="newPassword" class="col-lg-2 control-label">Password</label>
+                                <label for="newPassword" class="col-lg-2 control-label">Adgangskode</label>
                                 <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="newPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="newPassword" placeholder="Adgangskode">
                                 </div>
                             </div>
 
@@ -75,29 +77,29 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="newPhone" class="col-lg-2 control-label">Phone</label>
+                                <label for="newPhone" class="col-lg-2 control-label">Telefonnummer</label>
                                 <div class="col-lg-10">
-                                    <input type="phone" class="form-control" id="newPhone" placeholder="Phone">
+                                    <input type="phone" class="form-control" id="newPhone" placeholder="Telefonnummer">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="newAdress" class="col-lg-2 control-label">Adress</label>
+                                <label for="newAdress" class="col-lg-2 control-label">Adresse</label>
                                 <div class="col-lg-10">
-                                    <input type="adress" class="form-control" id="newAdress" placeholder="Adress">
+                                    <input type="adress" class="form-control" id="newAdress" placeholder="Adresse">
                                 </div>
                             </div>
 
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="#">Cash</a>
-                                    <a href="#">Transfer</a>
-                                    <a href="#">MobilePay</a>
-                                </div>
-                            </div>
+                            <div>
+                                <h8> Betalingsmuligheder </h8> <br>
 
-                            <button class="btn btn-success pull-right" id="createNewUserButton">Create</button>
+                                <input type="checkbox" name="cash" value="cash"> Kontant<br>
+                                <input type="checkbox" name="mobilepay" value="mobilepay"> MobilePay<br>
+                                <input type="checkbox" name="transfer" value="transfer"> Bankoverførsel<br>
+                    </form>
+                </div>
+
+                            <button class="btn btn-success pull-right" id="createNewUserButton">Opret bruger</button>
 
                         </fieldset>
                     </form>
@@ -114,10 +116,10 @@
             </div>
         </footer>
 
-        <script src="lib/js/jquery-3.1.1.js"></script>
-        <script src="lib/js/bootstrap.js"></script>
-        <script src="js/sdk.js"></script>
-        <script src="js/login.page.js"></script>
+        <script src="../lib/js/jquery-3.1.1.js"></script>
+        <script src="../lib/js/bootstrap.js"></script>
+        <script src="../js/sdk.js"></script>
+        <script src="../js/login.page.js"></script>
 
 </body>
 </html>
