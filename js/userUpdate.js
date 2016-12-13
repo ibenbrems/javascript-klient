@@ -16,11 +16,11 @@ $(document).ready(function () {
             transferChecked = 1;
         }
 
-        var updatedUser = {
+        var updateUser = {
             username: $("#updateUserUsername").val(),
             password: $("#updateUserPassword").val(),
             email: $("#updateUserEmail").val(),
-            phonenumber: parseInt($("#updateUserPhonenumber").val()),
+            phonenumber: $("#updateUserPhonenumber").val(),
             address: $("#updateUserAddress").val(),
 
             mobilepay: mobilepayChecked,
@@ -28,16 +28,12 @@ $(document).ready(function () {
             transfer: transferChecked,
         };
 
-        SDK.User.update(updatedUser, function (err, data) {
-            if (err) {
-                window.alert("Der opstod en fejl - prøv igen!")
+        SDK.User.update(updateUser, function (err) {
+            if (err) throw err;
 
-                throw err
-                location.reload()
-            } else {
-                window.location.href = "user.html";
+            alert("Din bruger er nu opdateret!")
+                location.href = "user.html";
 
-            }
+            });
         });
     });
-});
