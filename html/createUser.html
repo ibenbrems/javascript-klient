@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<body>
+
 
     <link rel="stylesheet" href="../lib/css/bootstrap.css">
     <link rel="stylesheet" href="../lib/css/bootstrap.cerulean.min.css">
@@ -9,10 +9,10 @@
 
 
     <meta charset="UTF-8">
-    <title>Opret bruger</title>
+    <title>Opret profil</title>
 
 </head>
-
+    <body>
 
 <div class="container">
 
@@ -51,49 +51,49 @@
 
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3">
-                    <div class="form-horizontal" id="loginForm">
+                    <form class="form-horizontal" id="loginForm">
                         <div>
 
                             <legend>Opret profil</legend>
-                            Med en profil på CBS brugtbogbørs kan du både sælge og købe brugte bøger
+                            <p>Med en profil på CBS brugtbogbørs kan du både sælge og købe brugte bøger</p>
 
+                            <div class="col-lg-11">
                             <div class="form-group">
-                                <label for="updateUsername" class="col-lg-2 control-label">Brugernavn</label>
-                                <div class="col-lg-11">
-                                    <input type="username" class="form-control" id="updateUsername" placeholder="Brugernavn">
+                                <label for="newUserUsername" class="control-label">Brugernavn</label>
+                                <input class="form-control" id="newUserUsername" type="text" placeholder="Brugernavn">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="updatePassword" class="col-lg-2 control-label">Adgangskode</label>
+                                <label for="newUserPassword" class="col-lg-2 control-label">Adgangskode</label>
                                 <div class="col-lg-11">
-                                    <input type="password" class="form-control" id="updatePassword" placeholder="Adgangskode">
+                                    <input type="text" class="form-control" id="newUserPassword" placeholder="Adgangskode">
                                 </div>
                             </div>
 
                                 <div class="form-group">
-                                    <label for="updateEmail" class="col-lg-2 control-label">Emailadresse</label>
+                                    <label for="newUserEmail" class="col-lg-2 control-label">Emailadresse</label>
                                     <div class="col-lg-11">
-                                        <input type="email" class="form-control" id="updateEmail" placeholder="Email">
+                                        <input type="text" class="form-control" id="newUserEmail" placeholder="Email">
                                     </div>
                                 </div>
 
                             <div class="form-group">
-                                <label for="updatePhonenumber" class="col-lg-2 control-label">Telefonnummer</label>
+                                <label for="newUserPhonenumber" class="col-lg-2 control-label">Telefonnummer</label>
                                 <div class="col-lg-11">
-                                    <input type="phonenumber" class="form-control" id="updatePhonenumber" placeholder="Telefonnummer">
+                                    <input type="number" class="form-control" id="newUserPhonenumber" placeholder="Telefonnummer">
                                 </div>
                             </div>
 
                                 <div class="form-group">
-                                    <label for="updateAddress" class="col-lg-2 control-label">Afhentningsadresse</label>
+                                    <label for="newUserAddress" class="col-lg-2 control-label">Afhentningsadresse</label>
                                     <div class="col-lg-11">
-                                        <input type="address" class="form-control" id="updateAddress" placeholder="Adresse">
+                                        <input type="text" class="form-control" id="newUserAddress" placeholder="Adresse">
                                 </div>
-
+                                    </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label"></label>
-                                <div class="col-lg-11">
+                                <label class="col-lg-10"></label>
+
                                    <br> <label> Hvis du vil sælge, hvilke betalingsmuligheder vil du tilbyde: </label><br>
 
                                     <input type="checkbox" name="cash" value="cash"> Kontant<br>
@@ -106,15 +106,14 @@
 
                             <button type="button" class="btn btn-info pull-right" id="createNewUserButton">Opret</button>
 
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
+
+                            </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
+        </div>
     </div>
-</div>
 
 
         <footer class="footer">

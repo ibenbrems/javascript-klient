@@ -26,9 +26,6 @@ var SDK = {
         create: function (data, cb) {
             SDK.request({method: "POST", url: "/createbook", data: data}, cb);
         },
-        delete: function (data, cb) {
-            SDK.request({method: "POST", url: "/deletebook", data: data}, cb);
-        }
     },
 
     User: {
@@ -36,16 +33,14 @@ var SDK = {
             SDK.request({method: "GET", url: "/getusers"}, cb);
         },
         create: function (data, cb) {
-            cb = window.location.href = "login.html";
             SDK.request({method: "POST", url: "/createuser", data: data}, cb)
         },
         update: function (data, cb) {
             SDK.request({method: "POST", url: "/updateuser", data: data}, cb)
         },
-
-        delete: function (data, cb) {
-            SDK.request({method: "POST", url: "/deleteuser", data: data}, cb)
-        },
+        current: function () {
+            return SDK.Storage.load("user");
+        }
 
     },
 

@@ -28,14 +28,6 @@ $(document).ready(function () {
         var $adsTableBody = $("#adsTableBody");
         data.forEach(function (ad) {
 
-            function locked(){
-                if(ad.locked==1){
-                    return "Ja"
-                } else{
-                    return "Nej"
-                }
-            }
-
             $adsTableBody.append(
                 "<tr>" +
                 "<td>" + ad.isbn + "</td>" +
@@ -44,7 +36,6 @@ $(document).ready(function () {
                 "<td>" + ad.bookEdition + "</td>" +
                 "<td>" + ad.price + "</td>" +
                 "<td>" + ad.rating + "</td>" +
-                "<td>" + locked() + "</td>" +
                 "</tr>");
         });
 
@@ -124,7 +115,7 @@ $(document).ready(function () {
 
 
                     //Create book
-                    SDK.Book.create(book, function (err, data) {
+                    SDK.Book.create(book, function (err) {
                         if (err) throw err;
 
                         $("#newBookModal").modal("hide");
@@ -141,7 +132,7 @@ $(document).ready(function () {
 
             $("#logOutLink").on("click", function () {
                 SDK.logOut();
-                window.location.href = "../html/index.html";
+                window.location.href = "index.html";
             });
 
 

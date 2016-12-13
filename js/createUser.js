@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    /**
+     * Opretter en ny bruger
+     * Tjekker først betalingstyper
+     * Opretter json opretter
+     */
 
     $("#createNewUserButton").on("click", function () {
 
@@ -15,12 +21,15 @@
         if ($("input[name=transfer]:checked").val()) {
             transferChecked = 1;
         }
-
+        /** Opretter json objekt
+         *
+         * @type {{username: (any), password: (any), email: (any), phoneNumber: (any), address: (any), cash: number, mobilePay: number, transfer: number}}
+         */
         var user = {
             username: $("#newUserUsername").val(),
             password: $("#newUserPassword").val(),
             email: $("#newUserEmail").val(),
-            phoneNumber: $("#newUserPhonenumber").val(),
+            phonenumber: $("#newUserPhonenumber").val(),
             address: $("#newUserAddress").val(),
 
             cash: cashChecked,
@@ -29,16 +38,21 @@
         };
 
 
-        SDK.User.create(function (user, err) {
+        SDK.User.create(user, function (err) {
 
             if (err) {
-                window.alert("Der opstod en fejl - prøv igen.")
-
+                alert("Der opstod en fejl - prøv igen")
                 throw err
                 location.reload()
             }
+            else
+                {
+                    alert("Brugeren er oprettet, du kan nu logge ind!")
+                    location.href = "login.html";
+                }
         });
-
     });
+
+});
 
 
