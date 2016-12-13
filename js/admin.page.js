@@ -14,7 +14,6 @@ $(document).ready(function () {
                 "<td>" + book.author + "</td>" +
                 "<td>" + book.edition + "</td>" +
                 "<td>" + book.isbn + "</td>" +
-                "<td><button class='deleteBookButton' data-bookId=" + book.bookId + ">Slet bog</button></td>" +
                 "</tr>");
         });
 
@@ -89,7 +88,6 @@ $(document).ready(function () {
                     "<td>" + user.mobilepay + "</td>" +
                     "<td>" + user.cash + "</td>" +
                     "<td>" + user.transfer + "</td>" +
-                    //"<td><button class='deleteUserButton' data-userId=" + user.userId + ">Slet bruger</button></td>" +
                     "</tr>");
             });
         });
@@ -105,7 +103,7 @@ $(document).ready(function () {
 
                 $("#createBookButton").on("click", function () {
 
-                    //Create JSON object
+                    //Opret JSON object
                     var book = {
                         title: $("#bookTitle").val(),
                         author: $("#bookAuthor").val(),

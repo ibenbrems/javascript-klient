@@ -39,7 +39,6 @@ $(document).ready(function () {
         });
 
 
-
         $("#addNewAdButton").on("click", function () {
 
             //Show modal
@@ -47,9 +46,8 @@ $(document).ready(function () {
 
 
             $("#createAdButton").on("click", function () {
-
-                //Create JSON object
-                var ad = {
+                 //Create JSON object
+                 var ad = {
                     isbn: parseInt($("#bookISBN").val()),
                     price: parseInt($("#newAdPrice").val()),
                     rating: parseInt($("#newAdRating").val()),
@@ -57,8 +55,8 @@ $(document).ready(function () {
 
                 };
 
-                //Create annonce til databasen
-                SDK.Ad.create(ad, function (err, data) {
+                 //Create annonce til databasen
+                 SDK.Ad.create(ad, function (err, data) {
 
                     if (err)
                         alert("Der opstod en fejl - prøv igen!")
@@ -70,9 +68,9 @@ $(document).ready(function () {
                     console.log(data);
                     alert("Annoncen er oprettet!");
                     });
-                });
+                 });
+
 
             });
         });
-    });
-
+});
