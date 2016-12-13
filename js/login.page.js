@@ -11,23 +11,19 @@ $(document).ready(function () {
 
       //On wrong credentials
       if(err) {
+          alert("Der opstod en fejl - prøv igen!")
         return $("#loginForm").find(".form-group").addClass("has-error");
       }
-
-      //Login OK!
+//Succes
       $("#loginForm").find(".form-group").addClass("has-success");
 
       if(data.type==1)
       {
-        window.location.href = "../html/admin.html";
+        window.location.href = "admin.html";
       }
       else {
-          window.location.href = "../html/user.html";
+          window.location.href = "userFrontpage.html";
       }
-
-
-
-
 
     });
 

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Opret bruger</title>
-</head>
 <body>
 
-<link rel="stylesheet" href="../lib/css/bootstrap.css">
-<link rel="stylesheet" href="../lib/css/bootstrap.lumen.min.css">
-<link rel="stylesheet" href="../css/sticky-footer.css">
+    <link rel="stylesheet" href="../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../lib/css/bootstrap.cerulean.min.css">
+    <link rel="stylesheet" href="../css/sticky-footer.css">
+
+
+    <meta charset="UTF-8">
+    <title>Opret bruger</title>
+
+</head>
 
 
 <div class="container">
@@ -26,21 +29,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">CBS Brugtbogsbørs </a>
+                        <a class="navbar-brand" href="index.html">HA(it) Brugtbogsbørs </a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="books.html">Bøger<span class="sr-only">(current)</span></a></li>
-                            <li><a href="ads.html">Annoncer</a></li>
-                            <li><a href="createUser.html">Opret bruger</a></li>
+                            <li><a href="books.html">Bøger på HA(it)</a></li>
+                            <li><a href="ads.html">Bøger til salg</a></li>
+                            <li class="active"><a href="createUser.html">Opret profil<span class="sr-only">(current)</span></a></li>
 
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="contact.html">Kontakt</a></li>
-                            <li><a href="aboutUs.html">Om os</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="login.html">Log ind</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,76 +51,82 @@
 
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3">
-                    <form class="form-horizontal" id="loginForm">
-                        <fieldset>
+                    <div class="form-horizontal" id="loginForm">
+                        <div>
 
-                            <legend>Opret bruger</legend>
+                            <legend>Opret profil</legend>
+                            Med en profil på CBS brugtbogbørs kan du både sælge og købe brugte bøger
 
                             <div class="form-group">
-                                <label for="newUsername" class="col-lg-2 control-label">Brugernavn</label>
-                                <div class="col-lg-10">
-                                    <input type="username" class="form-control" id="newUsername" placeholder="Brugernavn">
+                                <label for="updateUsername" class="col-lg-2 control-label">Brugernavn</label>
+                                <div class="col-lg-11">
+                                    <input type="username" class="form-control" id="updateUsername" placeholder="Brugernavn">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="newPassword" class="col-lg-2 control-label">Adgangskode</label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="newPassword" placeholder="Adgangskode">
+                                <label for="updatePassword" class="col-lg-2 control-label">Adgangskode</label>
+                                <div class="col-lg-11">
+                                    <input type="password" class="form-control" id="updatePassword" placeholder="Adgangskode">
                                 </div>
                             </div>
+
+                                <div class="form-group">
+                                    <label for="updateEmail" class="col-lg-2 control-label">Emailadresse</label>
+                                    <div class="col-lg-11">
+                                        <input type="email" class="form-control" id="updateEmail" placeholder="Email">
+                                    </div>
+                                </div>
 
                             <div class="form-group">
-                                <label for="newEmail" class="col-lg-2 control-label">Email</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="newEmail" placeholder="Email">
+                                <label for="updatePhonenumber" class="col-lg-2 control-label">Telefonnummer</label>
+                                <div class="col-lg-11">
+                                    <input type="phonenumber" class="form-control" id="updatePhonenumber" placeholder="Telefonnummer">
                                 </div>
                             </div>
+
+                                <div class="form-group">
+                                    <label for="updateAddress" class="col-lg-2 control-label">Afhentningsadresse</label>
+                                    <div class="col-lg-11">
+                                        <input type="address" class="form-control" id="updateAddress" placeholder="Adresse">
+                                </div>
 
                             <div class="form-group">
-                                <label for="newPhone" class="col-lg-2 control-label">Telefonnummer</label>
-                                <div class="col-lg-10">
-                                    <input type="phone" class="form-control" id="newPhone" placeholder="Telefonnummer">
+                                <label class="col-lg-2 control-label"></label>
+                                <div class="col-lg-11">
+                                   <br> <label> Hvis du vil sælge, hvilke betalingsmuligheder vil du tilbyde: </label><br>
+
+                                    <input type="checkbox" name="cash" value="cash"> Kontant<br>
+                                    <input type="checkbox" name="mobilepay" value="mobilePay"> MobilePay<br>
+                                    <input type="checkbox" name="transfer" value="transfer"> Bankoverførsel<br>
+                                    <br>
+                                    </div>
+                                </div>
+
+
+                            <button type="button" class="btn btn-info pull-right" id="createNewUserButton">Opret</button>
+
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="newAdress" class="col-lg-2 control-label">Adresse</label>
-                                <div class="col-lg-10">
-                                    <input type="adress" class="form-control" id="newAdress" placeholder="Adresse">
-                                </div>
-                            </div>
-
-                            <div>
-                                <h8> Betalingsmuligheder </h8> <br>
-
-                                <input type="checkbox" name="cash" value="cash"> Kontant<br>
-                                <input type="checkbox" name="mobilepay" value="mobilepay"> MobilePay<br>
-                                <input type="checkbox" name="transfer" value="transfer"> Bankoverførsel<br>
-                    </form>
-                </div>
-
-                            <button class="btn btn-success pull-right" id="createNewUserButton">Opret bruger</button>
-
                         </fieldset>
-                    </form>
+                    </div>
                 </div>
             </div>
-
         </div>
-
+    </div>
+</div>
 
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">2016 © All rights reserved - Awesome Bookstore Inc.</p>
+                <p class="text-muted">2016 - HA(it) Brugtbogsbørs </p>
             </div>
         </footer>
 
         <script src="../lib/js/jquery-3.1.1.js"></script>
         <script src="../lib/js/bootstrap.js"></script>
         <script src="../js/sdk.js"></script>
-        <script src="../js/login.page.js"></script>
+        <script src="../js/createUser.js"></script>
 
 </body>
 </html>

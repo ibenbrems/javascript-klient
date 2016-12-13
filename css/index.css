@@ -1,5 +1,9 @@
+body{
+    background-image: url(../lib/bogtilclient.jpg);
+}
+
 html {
-    background-color: #4CAF50;
+    background-color: #636363;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -8,4 +12,8 @@ html {
 
 }
 
+.jumbotron{
+    box-shadow: 0px 0px 2px 1px #636363;
+    height: 100%;
+    width: auto;
 }

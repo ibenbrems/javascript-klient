@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../lib/css/bootstrap.cerulean.min.css">
+    <link rel="stylesheet" href="../css/sticky-footer.css">
+
+
+    <meta charset="UTF-8">
+    <title>Brugerside</title>
+
+</head>
+<body>
+
+<!-- New Ad Modal -->
+<div class="modal fade" id="newAdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Opret annonce</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row" >
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="bookISBN">ISBN</label>
+                            <input class="form-control" id="bookISBN" type="text">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="newAdPrice">Bogens pris</label>
+                            <input class="form-control" id="newAdPrice" type="text">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="newAdRating">Vudering fra 1-10</label>
+                            <input class="form-control" id="newAdRating" type="number">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="newAdComment">Evt. Kommentar</label>
+                            <input class="form-control" id="newAdComment" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
+                <button type="button" class="btn btn-success" id="createBookButton">Opret annonce</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">HA(it) Brugtbogsbørs</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="userFrontpage.html">Brugermenu</a></li>
+                            <li class="active"><a href="createAd.html">Opret annonce<span class="sr-only">(current)</span></a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="userUpdate.html">Opdater profil</a></li>
+                            <li><a href="index.html">Log ud</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Mine annoncer</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <th>Annonce ID</th>
+                <th>ISBN</th>
+                <th>Pris</th>
+                <th>Rating</th>
+                <th>Kommentar</th>
+                <th>Reserveret</th>
+                </thead>
+                <tbody id="myAdsTableBody">
+                </tbody>
+            </table>
+                <hr>
+                <!-- Button trigger modal -->
+                <button class="btn btn-info" id="addNewAdButton">
+                    <span class="glyphicon glyphicon-plus"></span> Opret ny annonce </button>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bøger</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <th>Titel</th>
+                <th>Forfatter</th>
+                <th>Edition</th>
+                <th>ISBN</th>
+                </thead>
+                <tbody id="booksTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">2016 - HA(it) Brugtbogsbørs</p>
+    </div>
+</footer>
+
+    <script src="../lib/js/jquery-3.1.1.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+    <script src="../js/sdk.js"></script>
+    <script src="../js/createAd.js"></script>
+
+
+</body>
+</html>

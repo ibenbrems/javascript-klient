@@ -1,139 +1,150 @@
 $(document).ready(function () {
 
-  //Fires on page-load
-  SDK.Book.getAll(function (err, data) {
-    if (err) throw err;
+    //Alle bøger
+    SDK.Book.getAll(function (err, data) {
+        if (err) throw err;
+        console.log(data);
 
-    function printAuthors(authors) {
-      return authors.map(function (author) {
-        return author.firstName + " " + author.lastName;
-      }).join(", ");
-    }
+        var $booksTableBody = $("#booksTableBody");
+        data.forEach(function (book) {
 
-    var $booksTableBody = $("#booksTableBody");
-    data.forEach(function (book, i) {
-
-      $booksTableBody.append(
-        "<tr>" +
-        "<td>" + book.title + "</td>" +
-        "<td>" + book.subtitle + "</td>" +
-        "<td>" + printAuthors(book.authors) + "</td>" +
-        "<td>" + book.publisher.name + "</td>" +
-        "<td>Kr. " + book.price + ",-</td>" +
-        "</tr>");
-    });
-
-  });
-
-  //Fires on page-load
-  SDK.User.getAll(function (err, users) {
-    if (err) throw err;
-
-    var $usersTableBody = $("#usersTableBody");
-    users.forEach(function (user) {
-
-      $usersTableBody.append(
-        "<tr>" +
-        "<td>" + user.firstName + " " + user.lastName + "</td>" +
-        "<td>" + user.username + "</td>" +
-        "<td>" + user.email + "</td>" +
-        "<td>" + user.id + "</td>" +
-        "</tr>");
-    });
-
-  });
-
-  var currentUser = SDK.User.current();
-  $("#currentUserName").text(currentUser.firstName +  " " + currentUser.lastName);
-
-  /**
-   * Add a new Book
-   */
-  $("#addNewBookButton").on("click", function () {
-
-    //Show modal
-    $('#newBookModal').modal('show');
-
-    //Fetch publishers, and set to DOM
-    SDK.Publisher.getAll(function (err, publishers) {
-      if (err) throw err;
-
-      var $publishersRadio = $("#publishersRadio");
-      publishers.forEach(function (publisher, i) {
-
-        $publishersRadio.append(
-          '<div class="radio">' +
-            '<label>' +
-              '<input type="radio" name="publisherRadios" id="optionsRadios' + i + '" value="' + publisher.id + '">' +
-              publisher.name +
-            '</label>' +
-          '</div>'
-        );
-
-      });
+            $booksTableBody.append(
+                "<tr>" +
+                "<td>" + book.title + "</td>" +
+                "<td>" + book.author + "</td>" +
+                "<td>" + book.edition + "</td>" +
+                "<td>" + book.isbn + "</td>" +
+                "<td><button class='deleteBookButton' data-bookId=" + book.bookId + ">Slet bog</button></td>" +
+                "</tr>");
+        });
 
     });
 
-    //Fetch authors, and set to DOM
-    SDK.Author.getAll(function(err, authors){
-      if (err) throw err;
+//alle annoncer
+    SDK.Ad.getAll(function (err, data) {
+        if (err) throw err;
+        console.log(data);
 
-      var $authorsCheckbox = $("#authorsCheckbox");
-      authors.forEach(function(author, i){
+        var $adsTableBody = $("#adsTableBody");
+        data.forEach(function (ad) {
 
-        $authorsCheckbox.append(
-          '<div class="checkbox">' +
-            '<label>' +
-              '<input type="checkbox" value="' + author.id + '">' +
-              author.firstName + ' ' + author.lastName +
-            '</label>' +
-          '</div>'
-        );
+            function locked(){
+                if(ad.locked==1){
+                    return "Ja"
+                } else{
+                    return "Nej"
+                }
+            }
 
-      });
+            $adsTableBody.append(
+                "<tr>" +
+                "<td>" + ad.isbn + "</td>" +
+                "<td>" + ad.bookTitle + "</td>" +
+                "<td>" + ad.bookAuthor + "</td>" +
+                "<td>" + ad.bookEdition + "</td>" +
+                "<td>" + ad.price + "</td>" +
+                "<td>" + ad.rating + "</td>" +
+                "<td>" + locked() + "</td>" +
+                "</tr>");
+        });
+
 
     });
 
-    $("#createBookButton").on("click", function(){
+    //Alle brugere
+    SDK.User.getAll(function (err, data) {
+        if (err) throw err;
+        console.log(data);
 
-      //Create JSON object
-      var book = {
-        title: $("#bookTitle").val(),
-        subtitle: $("#bookSubTitle").val(),
-        pageCount: $("#bookPageCount").val(),
-        edition: $("#bookEdition").val(),
-        price: $("#bookPrice").val(),
-        authorIds: [],
-        publisherId: $("input[name=publisherRadios]:checked").val()
-      };
+        var $usersTableBody = $("#usersTableBody");
+        data.forEach(function (data) {
 
-      //Fetch selected authors
-      $('#authorsCheckbox').find('input:checked').each(function() {
-        book.authorIds.push($(this).val());
-      });
+            data.forEach(function (user) {
 
-      //Create book
-      SDK.Book.create(book, function(err, data){
-        if(err) throw err;
+                function mobilepay() {
+                    if (user.mobilepay == 1) {
+                        return "Ja"
+                    }
+                    else {
+                        return "Nej"
+                    }
+                }
 
-        $("#newBookModal").modal("hide");
-      });
+                function cash() {
+                    if (user.cash == 1) {
+                        return "Ja"
+                    }
+                    else {
+                        return "Nej"
+                    }
+                }
+
+                function transfer() {
+                    if (user.transfer == 1) {
+                        return "Ja"
+                    }
+                    else {
+                        return "Nej"
+                    }
+                }
+
+                $usersTableBody.append(
+                    "<tr>" +
+                    "<td>" + user.id + "</td>" +
+                    "<td>" + user.username + "</td>" +
+                    "<td>" + user.email + "</td>" +
+                    "<td>" + user.phonenumber + "</td>" +
+                    "<td>" + user.address + "</td>" +
+                    "<td>" + user.mobilepay + "</td>" +
+                    "<td>" + user.cash + "</td>" +
+                    "<td>" + user.transfer + "</td>" +
+                    //"<td><button class='deleteUserButton' data-userId=" + user.userId + ">Slet bruger</button></td>" +
+                    "</tr>");
+            });
+        });
+
+
+            /**
+             * Tilføj en ny bog
+             */
+            $("#addNewBookButton").on("click", function () {
+
+                //Show modal
+                $('#newBookModal').modal('show');
+
+                $("#createBookButton").on("click", function () {
+
+                    //Create JSON object
+                    var book = {
+                        title: $("#bookTitle").val(),
+                        author: $("#bookAuthor").val(),
+                        edition: $("#bookEdition").val(),
+                        price: $("#bookISBN").val(),
+                    };
+
+
+                    //Create book
+                    SDK.Book.create(book, function (err, data) {
+                        if (err) throw err;
+
+                        $("#newBookModal").modal("hide");
+                    });
+                });
+            });
+
+            /**
+             * Add a new User
+             */
+            $("#addNewUserButton").on("click", function () {
+
+            });
+
+            $("#logOutLink").on("click", function () {
+                SDK.logOut();
+                window.location.href = "../html/index.html";
+            });
+
+
+        });
 
     });
-
-  });
-
-  /**
-   * Add a new User
-   */
-  $("#addNewUserButton").on("click", function () {
-
-  });
-
-  $("#logOutLink").on("click", function(){
-    SDK.logOut();
-    window.location.href = "../html/index.html";
-  });
-
-
-});
