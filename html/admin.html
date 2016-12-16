@@ -26,31 +26,32 @@
       <div class="modal-body">
 
         <div class="row" >
-          <div class="col-md-12">
-            <div class="form-group">
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label" for="bookISBN">ISBN</label>
+                  <input class="form-control" id="bookISBN" type="isbn">
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
               <label class="control-label" for="bookTitle">Bogens titel</label>
-              <input class="form-control" id="bookTitle" type="text">
+              <input class="form-control" id="bookTitle" type="title">
             </div>
           </div>
 
           <div class="col-md-12">
           <div class="form-group">
-            <label class="control-label" id="authorsCheckbox">Forfatter</label>
-              <input class="form-control" id="bookAuthor" type="text">
+            <label class="control-label" for="bookAuthor">Forfatter</label>
+              <input class="form-control" id="bookAuthor" type="author">
           </div>
         </div>
 
           <div class="col-md-12">
             <div class="form-group">
               <label class="control-label" for="bookEdition">Udgave</label>
-              <input class="form-control" id="bookEdition" type="text">
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="form-group">
-              <label class="control-label" for="bookISBN">ISBN</label>
-              <input class="form-control" id="bookISBN" type="number">
+              <input class="form-control" id="bookEdition" type="edition">
             </div>
           </div>
         </div>
@@ -147,28 +148,6 @@
 
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Annoncer</h3>
-        </div>
-        <div class="panel-body">
-
-          <table class="table table-striped">
-            <thead>
-            <th>Titel</th>
-            <th>Forfatter(e)</th>
-            <th>Udgave</th>
-            <th>ISBN</th>
-            <th>Rating</th>
-            <th>Pris</th>
-            <th>Kommentar</th>
-            </thead>
-            <tbody id="adsTableBody">
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
           <h3 class="panel-title">Brugere</h3>
         </div>
         <div class="panel-body">
@@ -203,7 +182,8 @@
 <script src="../lib/js/jquery-3.1.1.js"></script>
 <script src="../lib/js/bootstrap.js"></script>
 <script src="../js/sdk.js"></script>
-<script src="../js/admin.page.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/ads.js"></script>
 
 </body>
 </html>

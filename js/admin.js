@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    //Alle bøger
+    /**
+     * Henter alle bøger, som er ligger i tabllen fra admin HTML
+     */
     SDK.Book.getAll(function (err, data) {
         if (err) throw err;
         console.log(data);
@@ -19,7 +21,9 @@ $(document).ready(function () {
 
     });
 
-//alle annoncer
+    /**
+     * Henter alle annoncer, som er ligger i tabllen fra admin HTML
+     */
     SDK.Ad.getAll(function (err, data) {
         if (err) throw err;
         console.log(data);
@@ -41,57 +45,6 @@ $(document).ready(function () {
 
     });
 
-    //Alle brugere
-    SDK.User.getAll(function (err, data) {
-        if (err) throw err;
-        console.log(data);
-
-        var $usersTableBody = $("#usersTableBody");
-        data.forEach(function (data) {
-
-            data.forEach(function (user) {
-
-                function mobilepay() {
-                    if (user.mobilepay == 1) {
-                        return "Ja"
-                    }
-                    else {
-                        return "Nej"
-                    }
-                }
-
-                function cash() {
-                    if (user.cash == 1) {
-                        return "Ja"
-                    }
-                    else {
-                        return "Nej"
-                    }
-                }
-
-                function transfer() {
-                    if (user.transfer == 1) {
-                        return "Ja"
-                    }
-                    else {
-                        return "Nej"
-                    }
-                }
-
-                $usersTableBody.append(
-                    "<tr>" +
-                    "<td>" + user.id + "</td>" +
-                    "<td>" + user.username + "</td>" +
-                    "<td>" + user.email + "</td>" +
-                    "<td>" + user.phonenumber + "</td>" +
-                    "<td>" + user.address + "</td>" +
-                    "<td>" + user.mobilepay + "</td>" +
-                    "<td>" + user.cash + "</td>" +
-                    "<td>" + user.transfer + "</td>" +
-                    "</tr>");
-            });
-        });
-
 
             /**
              * Tilføj en ny bog
@@ -105,14 +58,17 @@ $(document).ready(function () {
 
                     //Opret JSON object
                     var book = {
+                        price: $("#bookISBN").val(),
                         title: $("#bookTitle").val(),
                         author: $("#bookAuthor").val(),
                         edition: $("#bookEdition").val(),
-                        price: $("#bookISBN").val(),
+
                     };
 
 
-                    //Create book
+                    /**
+                     * Metoden der opretter en ny bog i et pop op vindue
+                     */
                     SDK.Book.create(book, function (err) {
                         if (err) throw err;
 
@@ -121,12 +77,6 @@ $(document).ready(function () {
                 });
             });
 
-            /**
-             * Add a new User
-             */
-            $("#addNewUserButton").on("click", function () {
-
-            });
 
             $("#logOutLink").on("click", function () {
                 SDK.logOut();
@@ -135,5 +85,3 @@ $(document).ready(function () {
 
 
         });
-
-    });

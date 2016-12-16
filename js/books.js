@@ -1,6 +1,9 @@
 $(document).ready(function ()
 {
 
+    /**
+     * Den metode, der udskriver alle bøger
+     */
   SDK.Book.getAll(function(err, data){
     if(err) throw err;
       console.log(data);

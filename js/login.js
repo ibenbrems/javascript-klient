@@ -1,7 +1,10 @@
-
 $(document).ready(function () {
 
-  $("#loginButton").on("click", function(e){
+
+    /**
+     * Log ind metoden
+     */
+    $("#loginButton").on("click", function(e){
     e.preventDefault();
 
     var username = $("#inputUsername").val();
@@ -9,12 +12,17 @@ $(document).ready(function () {
 
     SDK.login(username, pw, function(err, data){
 
-      //On wrong credentials
+        /**
+         * Ved fejl
+         */
       if(err) {
           alert("Der opstod en fejl - prøv igen!")
         return $("#loginForm").find(".form-group").addClass("has-error");
       }
-//Succes
+
+        /**
+         * Ved succes
+         */
       $("#loginForm").find(".form-group").addClass("has-success");
 
       if(data.type==1)

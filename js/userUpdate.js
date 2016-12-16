@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    /**
+     * Denne metode opdaterer brugeren, ved at brugeren indtaster alle brugeroplysningerne på ny
+     */
     $("#updateUserButton").on("click", function () {
 
 
@@ -20,19 +23,26 @@ $(document).ready(function () {
             username: $("#updateUserUsername").val(),
             password: $("#updateUserPassword").val(),
             email: $("#updateUserEmail").val(),
-            phonenumber: $("#updateUserPhonenumber").val(),
             address: $("#updateUserAddress").val(),
+            phonenumber: ParseInt($("#updateUserPhonenumber").val()),
+
 
             mobilepay: mobilepayChecked,
             cash: cashChecked,
             transfer: transferChecked,
         };
 
-        SDK.User.update(updateUser, function (err) {
-            if (err) throw err;
+        SDK.User.update(updateUser, function (err, data) {
+            if (err) {
+                alert("Der opstod en fejl - prøv igen!")
 
-            alert("Din bruger er nu opdateret!")
-                location.href = "user.html";
+            throw err
+        }
+        else
+        {
+            alert("Din profil er nu opdateret!")
+            location.href = "userFrontpage.html";
+        }
 
             });
         });

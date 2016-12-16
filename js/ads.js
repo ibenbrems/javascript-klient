@@ -1,6 +1,9 @@
 $(document).ready(function ()
 {
 
+    /**
+     * Den metode, der udskriver alle annoncer
+     */
     SDK.Ad.getAll(function(err, data){
         if(err) throw err;
 

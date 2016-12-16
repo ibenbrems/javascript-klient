@@ -13,8 +13,9 @@
 </head>
 <body>
 
+
 <!-- New Ad Modal -->
-<div class="modal fade" id="newAdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="AdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -23,6 +24,7 @@
                 <h4 class="modal-title">Opret annonce</h4>
             </div>
             <div class="modal-body">
+
 <p> OBS! Når du opretter en ny annonce, skal du bruge ISBN nummeret fra en bog, der allerede er oprettet i systemet</p>
                 <div class="row" >
                     <div class="col-md-12">
@@ -34,34 +36,35 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label" for="newAdPrice">Bogens pris</label>
-                            <input class="form-control" id="newAdPrice" type="text" placeholder="Fx 205">
+                            <label class="control-label" for="AdPrice">Bogens pris</label>
+                            <input class="form-control" id="AdPrice" type="text" placeholder="Fx 205">
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label" for="newAdRating">Vudering</label>
-                            <input class="form-control" id="newAdRating" type="number" placeholder="Vurdering fra 1-5">
+                            <label class="control-label" for="AdRating">Vudering</label>
+                            <input class="form-control" id="AdRating" type="number" placeholder="Vurdering fra 1-5">
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label" for="newAdComment">Kommentar</label>
-                            <input class="form-control" id="newAdComment" type="text" placeholder="Fx God men brugt>
+                            <label class="control-label" for="AdComment">Kommentar</label>
+                            <input class="form-control" id="AdComment" type="text" placeholder="Fx God men brugt">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal-footer">
+          <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
-                <button type="button" class="btn btn-success" id="createBookButton">Opret annonce</button>
+                <button type="button" class="btn btn-success" id="createAdButton">Opret annonce</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="container">
 
@@ -96,21 +99,20 @@
         </div>
     </div>
 
-
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Bøger</h3>
         </div>
         <div class="panel-body">
-
             <table class="table table-striped">
                 <thead>
                 <th>Titel</th>
                 <th>Forfatter</th>
-                <th>Edition</th>
+                <th>Udgave</th>
                 <th>ISBN</th>
                 </thead>
                 <tbody id="booksTableBody">
+
                 </tbody>
             </table>
             <!-- Button trigger modal -->
@@ -119,9 +121,6 @@
         </div>
     </div>
 </div>
-            </div>
-        </div>
-    </div>
 
 
 <footer class="footer">

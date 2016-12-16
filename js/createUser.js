@@ -12,9 +12,9 @@ $(document).ready(function () {
             cashChecked = 1;
         }
 
-        var mobilePayChecked = 0;
+        var mobilepayChecked = 0;
         if ($("input[name=mobilepay]:checked").val()) {
-            mobilePayChecked = 1;
+            mobilepayChecked = 1;
         }
 
         var transferChecked = 0;
@@ -26,24 +26,23 @@ $(document).ready(function () {
          * @type {{username: (any), password: (any), email: (any), phoneNumber: (any), address: (any), cash: number, mobilePay: number, transfer: number}}
          */
         var user = {
-            username: $("#newUserUsername").val(),
-            password: $("#newUserPassword").val(),
-            email: $("#newUserEmail").val(),
-            phonenumber: $("#newUserPhonenumber").val(),
-            address: $("#newUserAddress").val(),
+            username: $("#Username").val(),
+            password: $("#Password").val(),
+            email: $("#Email").val(),
+            address: $("#Address").val(),
+            phonenumber: parseInt($("#Phonenumber").val()),
 
+            mobilepay: mobilepayChecked,
             cash: cashChecked,
-            mobilePay: mobilePayChecked,
             transfer: transferChecked,
         };
 
 
-        SDK.User.create(user, function (err) {
+        SDK.User.create(user, function (err, data) {
 
             if (err) {
-                alert("Der opstod en fejl - prøv igen")
+                alert("Der opstod en fejl - prøv igen!")
                 throw err
-                location.reload()
             }
             else
                 {
